@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
 
 <Pane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
@@ -19,10 +20,17 @@
     <TextField fx:id="sentencesTextField" alignment="CENTER" layoutX="50.0" layoutY="115.0"
                prefHeight="25.0" prefWidth="500.0"
                styleClass="sentences-text-field" stylesheets="@style.css"/>
-    <Label fx:id="resultsLabel" alignment="CENTER" layoutX="50.0" layoutY="180.0"
-           prefHeight="17.0" prefWidth="500.0"
-           text="Time: Accuracy: Wpm:"
-           styleClass="results-label" stylesheets="@style.css"/>
+    <VBox fx:id="resultsVBox" layoutX="50.0" layoutY="170.0"
+          prefHeight="25.0" prefWidth="500.0"
+          styleClass="results-vbox" stylesheets="@style.css">
+        <Label fx:id="timeLabel" alignment="CENTER"
+               prefHeight="25" prefWidth="500.0"/>
+        <Label fx:id="accuracyLabel" alignment="CENTER"
+               prefHeight="25" prefWidth="500.0"/>
+        <Label fx:id="wpmLabel" alignment="CENTER"
+               prefHeight="25" prefWidth="500.0"/>
+    </VBox>
+
     <Button fx:id="resetButton" layoutX="50.0" layoutY="240.0" mnemonicParsing="false"
             prefHeight="25.0" prefWidth="500.0"
             text="RESET"

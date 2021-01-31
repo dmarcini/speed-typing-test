@@ -12,13 +12,17 @@
     -fx-background-color: black;
     -fx-border-color: yellow;
     -fx-border-radius: 0;
-    -fx-border-width: 2;
+    -fx-border-width: 1;
     -fx-text-fill: white;
     -fx-padding: 8;
     -fx-font-size: 13;
 }
 
-.results-label {
+.results-vbox Label {
+    -fx-text-fill: yellow;
+}
+
+.time-label, accuracy-label, wpm-label {
     -fx-text-fill: yellow;
 }
 
