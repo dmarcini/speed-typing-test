@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
 
-<GridPane fx:controller="com.dmarcini.app.Main"
-          xmlns:fx="http://javafx.com/fxml">
-</GridPane>
+
+<Pane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.dmarcini.app.controllers.SpeedTypingTestController"
+      maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="300.0" prefWidth="600.0"
+      styleClass="scene-pane" stylesheets="@style.css">
+    <Label fx:id="sentencesLabel" alignment="CENTER" layoutX="50.0" layoutY="40.0"
+           prefHeight="25.0" prefWidth="500.0"
+           text="sentences"
+           styleClass="sentences-label" stylesheets="@style.css"/>
+    <TextField fx:id="sentencesTextField" alignment="CENTER" layoutX="50.0" layoutY="115.0"
+               prefHeight="25.0" prefWidth="500.0"
+               styleClass="sentences-text-field" stylesheets="@style.css"/>
+    <Label fx:id="resultsLabel" alignment="CENTER" layoutX="50.0" layoutY="180.0"
+           prefHeight="17.0" prefWidth="500.0"
+           text="Time: Accuracy: Wpm:"
+           styleClass="results-label" stylesheets="@style.css"/>
+    <Button fx:id="resetButton" layoutX="50.0" layoutY="240.0" mnemonicParsing="false"
+            prefHeight="25.0" prefWidth="500.0"
+            text="RESET"
+            styleClass="reset-button" stylesheets="@style.css"/>
+</Pane>

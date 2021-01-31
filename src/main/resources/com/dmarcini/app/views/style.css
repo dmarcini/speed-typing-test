@@ -1,0 +1,29 @@
+.scene-pane {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.sentences-label {
+    -fx-text-fill: white;
+    -fx-font-size: 13;
+}
+
+.sentences-text-field {
+    -fx-background-color: black;
+    -fx-border-color: yellow;
+    -fx-border-radius: 0;
+    -fx-border-width: 2;
+    -fx-text-fill: white;
+    -fx-padding: 8;
+    -fx-font-size: 13;
+}
+
+.results-label {
+    -fx-text-fill: yellow;
+}
+
+.reset-button {
+    -fx-background-color: yellow;
+    -fx-text-fill: black;
+    -fx-font-size: 14;
+}
