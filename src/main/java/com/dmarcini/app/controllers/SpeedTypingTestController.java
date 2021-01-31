@@ -1,5 +1,6 @@
 package com.dmarcini.app.controllers;
 
+import com.dmarcini.app.sentencegenerator.SentenceGenerator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,12 +16,17 @@ public final class SpeedTypingTestController {
     @FXML
     private Button resetButton;
 
-    public SpeedTypingTestController() {
+    private final SentenceGenerator sentenceGenerator;
 
+    public SpeedTypingTestController() {
+        this.sentenceGenerator = new SentenceGenerator("com/dmarcini/app/files/sentences.txt");
     }
 
     @FXML
     private void initialize() {
+        sentencesLabel.setWrapText(true);
         resultsLabel.setVisible(false);
+
+        sentencesLabel.setText(sentenceGenerator.getRandomSentence());
     }
 }
