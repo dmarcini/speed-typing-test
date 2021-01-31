@@ -52,6 +52,8 @@ public final class SpeedTypingTestController {
 
         sentencesTextField.textProperty().addListener(e -> startTyping());
         sentencesTextField.setOnKeyPressed(this::getResults);
+
+        resetButton.setOnAction(e -> reset());
     }
 
     @FXML
@@ -76,6 +78,15 @@ public final class SpeedTypingTestController {
         wpmLabel.setText("WPM: " + calculateWPM(timeInSeconds));
 
         resultsVBox.setVisible(true);
+    }
+
+    @FXML
+    private void reset() {
+        isTypingStarted = false;
+
+        sentencesLabel.setText(sentenceGenerator.getRandomSentence());
+        sentencesTextField.clear();
+        resultsVBox.setVisible(false);
     }
 
     private int calculateAccuracy() {
