@@ -32,8 +32,7 @@ public final class SpeedTypingTestController {
 
     private final SentenceGenerator sentenceGenerator;
 
-    private long startTime;
-
+    private long startTypingTime;
     private boolean isTypingStarted;
 
     public SpeedTypingTestController() {
@@ -59,7 +58,7 @@ public final class SpeedTypingTestController {
     @FXML
     private void startTyping() {
         if (!isTypingStarted) {
-            startTime = System.currentTimeMillis();
+            startTypingTime = System.currentTimeMillis();
         }
 
         isTypingStarted = true;
@@ -71,7 +70,7 @@ public final class SpeedTypingTestController {
             return;
         }
 
-        long timeInSeconds = (System.currentTimeMillis() - startTime) / 1000;
+        long timeInSeconds = (System.currentTimeMillis() - startTypingTime) / 1000;
 
         timeLabel.setText("time: " + timeInSeconds + "s");
         accuracyLabel.setText("accuracy: " + calculateAccuracy() + "%");
@@ -90,20 +89,18 @@ public final class SpeedTypingTestController {
     }
 
     private int calculateAccuracy() {
-        int sentencesLength = sentencesLabel.getText().length();
-        int inputSentencesLength = sentencesTextField.getLength();
+        var sentenceWords = sentencesLabel.getText().split(" ");
+        var inputSentenceWords = sentencesTextField.getText().split(" ");
 
-        int minSentencesLength = Math.min(sentencesLength, inputSentencesLength);
-        int maxSentencesLength = Math.max(sentencesLength, inputSentencesLength);
+        int minSentenceWordsLength = Math.min(sentenceWords.length,
+                                              inputSentenceWords.length);
+        int maxSentenceWordsLength = Math.max(sentenceWords.length,
+                                              inputSentenceWords.length);
 
-        String sentences = sentencesLabel.getText();
-        String inputSentences = sentencesTextField.getText();
-
-        int accuracy = (int) IntStream.range(0, minSentencesLength)
-                                      .filter(i -> sentences.charAt(i) ==
-                                                   inputSentences.charAt(i))
+        int accuracy = (int) IntStream.range(0, minSentenceWordsLength)
+                                      .filter(i -> sentenceWords[i].equals(inputSentenceWords[i]))
                                       .count();
-        accuracy = (int) (accuracy / (double) maxSentencesLength * 100);
+        accuracy = (int) (accuracy / (double) maxSentenceWordsLength * 100);
 
         return accuracy;
     }
